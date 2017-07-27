@@ -137,7 +137,6 @@
     <ClInclude Include="Queue.h" />
     <ClInclude Include="SList.h" />
     <ClInclude Include="Stack.h" />
-    <ClInclude Include="Stream.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
