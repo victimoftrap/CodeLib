@@ -133,6 +133,7 @@
     <ClInclude Include="ADT.h" />
     <ClInclude Include="Dictionary.h" />
     <ClInclude Include="DList.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="SList.h" />
     <ClInclude Include="Stack.h" />
