@@ -2,5 +2,5 @@
 #include "ADT.h"
 class Ochko :ADT 
 {
-	//sadg
+	//ya prosto ob'yasnyal golovachu
 };
