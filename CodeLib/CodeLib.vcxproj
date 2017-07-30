@@ -134,13 +134,13 @@
     <ClInclude Include="Dictionary.h" />
     <ClInclude Include="DList.h" />
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="Ochko.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="SList.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StringShuffle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Queue.cpp" />
     <ClCompile Include="StringShuffle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
