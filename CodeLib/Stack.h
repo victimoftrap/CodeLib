@@ -13,7 +13,9 @@ public:
     int get() override;
     bool isEmpty() override;
     std::string toString() override;
+    //std::string toString(std::string = " ");
     void reverse();
+    void clear();
 
 protected:
     /*
