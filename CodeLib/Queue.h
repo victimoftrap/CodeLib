@@ -4,6 +4,7 @@
 class Queue : ADT
 {
 public:
+    Queue();
     ~Queue() override;
     void push(int) override;
     int pop() override;
