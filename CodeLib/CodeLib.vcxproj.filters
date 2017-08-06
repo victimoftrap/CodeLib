@@ -38,8 +38,9 @@
     </ClInclude>
     <ClInclude Include="Array.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Stack.h">
+    <ClInclude Include="StringShuffle.h">
+    <ClInclude Include="Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -49,6 +50,14 @@
     </ClCompile>
     <ClCompile Include="Stack.cpp">
       <Filter>Source Files</Filter>
+
+    <ClCompile Include="StringShuffle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>Source Files</Filter>
+
+
     </ClCompile>
   </ItemGroup>
 </Project>
