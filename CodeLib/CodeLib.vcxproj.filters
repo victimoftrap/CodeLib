@@ -18,9 +18,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Stack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -39,17 +36,27 @@
     <ClInclude Include="Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>Header Files</Filter>
+    <ClInclude Include="Stack.h">
     <ClInclude Include="StringShuffle.h">
     <ClInclude Include="Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Array.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Source Files</Filter>
+
     <ClCompile Include="StringShuffle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Queue.cpp">
       <Filter>Source Files</Filter>
+
 
     </ClCompile>
   </ItemGroup>
