@@ -5,16 +5,49 @@
     <ClCompile Include="StringShuffle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ADT.h" />
-    <ClInclude Include="Dictionary.h" />
-    <ClInclude Include="DList.h" />
-    <ClInclude Include="Matrix.h" />
-    <ClInclude Include="Queue.h" />
-    <ClInclude Include="SList.h" />
-    <ClInclude Include="Stack.h" />
-    <ClInclude Include="StringShuffle.h" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <ClInclude Include="ADT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dictionary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>Header Files</Filter>
+    <ClInclude Include="Stack.h">
+    <ClInclude Include="StringShuffle.h">
+    <ClInclude Include="Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Array.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Source Files</Filter>
+
+    <ClCompile Include="StringShuffle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>Source Files</Filter>
+
+
+    </ClCompile>
   </ItemGroup>
 </Project>
