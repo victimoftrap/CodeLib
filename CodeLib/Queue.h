@@ -23,8 +23,8 @@ protected:
         Element* next = nullptr;
         Element(int, Element*);
     };
-    Element* _root = nullptr;     // root element for queue.
-    Element* _current = nullptr;
+    Element* root = nullptr;     // root element for queue.
+    Element* current = nullptr;
 
 
 };

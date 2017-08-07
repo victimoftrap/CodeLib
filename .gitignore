@@ -4,7 +4,7 @@
 
 /CodeLib/CodeLib.VC.db
 /CodeLib/CodeLib.VC.VC.opendb
-/.vs
+
 /.vs
 /CodeLib/.vs/CodeLib/v15
 /CodeLib/Debug
@@ -14,3 +14,4 @@
 /CodeLib/Debug/CodeLib.tlog/CL.read.1.tlog
 /CodeLib/Debug
 /CodeLib/oldStack.h
+
