@@ -23,11 +23,6 @@ void SList::push(int value)
     }
     else if (current->next == nullptr)
     {
-        /*current = root;
-        while (current->next != NULL)
-        {
-            current = current->next;
-        }*/
         current->next = temp;
         current = current->next;
     }
@@ -78,20 +73,17 @@ int SList::pop()
     }
     else
     {
-        Element* temp = new Element;
-        temp = root;
+        Element* temp = root;
         while (temp->next != current)
         {
             temp = temp->next;
         }
 
-        if (current != nullptr) temp->next = current->next;
-        else temp->next = nullptr;
-        //temp->next = current->next;
+        temp->next = current->next;
         
         int data = current->value;
         delete current;
-        current = root;
+        current = temp;
         return data;
     }
 }
@@ -102,10 +94,6 @@ int SList::get()
     {
         //except
     }
-    else if (root->next == nullptr)
-    {
-        return root->value;
-    }
     else
     {
         return current->value;
@@ -114,14 +102,7 @@ int SList::get()
 
 bool SList::isEmpty()
 {
-    if (root == nullptr)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (root == nullptr);
 }
 
 std::string SList::toString()
@@ -129,19 +110,15 @@ std::string SList::toString()
     std::string temp = "";
     if (!isEmpty())
     {
-        Element* lastCurrent = new Element;
-        lastCurrent = current;
-
+        Element* lastCurrent = root;
+        
         temp += "[ ";
-        current = root;
-        while (current != nullptr)
+        while (lastCurrent != nullptr)
         {
-            temp.append(std::to_string(current->value) + " ");
-            current = current->next;
+            temp.append(std::to_string(lastCurrent->value) + " ");
+            lastCurrent = lastCurrent->next;
         }
         temp += "}";
-
-        current = lastCurrent;
     }
     return temp;
 }
@@ -153,10 +130,7 @@ void SList::clear()
         toBegin();
         while (!isEmpty())
         {
-            current = root;
-            root = root->next;
-            delete current;
-            current = nullptr;
+            pop();
         }
         delete root;
         root = nullptr;
@@ -170,7 +144,7 @@ SList::~SList()
 
 void SList::moveForward()
 {
-    if (isEmpty())
+    if (current == nullptr)
     {
         //except
     }
@@ -194,36 +168,10 @@ void SList::toBegin()
 
 bool SList::isEnd()
 {
-    if (current->next == nullptr)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (current->next == nullptr);
 }
 
-void SList::toEnd()
-{
-    if (isEmpty())
-    {
-        //except
-    }
-    else
-    {
-        if (root->next != nullptr)
-        {
-            current = root;
-            while (current->next != nullptr)
-            {
-                current = current->next;
-            }
-        }
-    }
-}
-
-void SList::pushBegin(int value)
+void SList::pushRoot(int value)
 {
     Element* temp = new Element;
     temp->value = value;
@@ -238,4 +186,31 @@ void SList::pushBegin(int value)
         root = temp;
     }
     current = root;
+}
+
+void SList::reverse()
+{
+    if (!isEmpty())
+    {
+        SList esr;
+        Element* point = nullptr;
+
+        while (point != root)
+        {
+            toBegin();
+            while (current->next != point)
+            {
+                moveForward();
+            }
+            point = current;
+            esr.push(point->value);
+        }
+
+        clear();
+        esr.toBegin();
+        while (!esr.isEmpty())
+        {
+            push(esr.pop());
+        }
+    }
 }

@@ -15,9 +15,9 @@ public:
     void moveForward();
     void toBegin();
     bool isEnd();
+    void pushRoot(int);
 
-    void toEnd();
-    void pushBegin(int);
+    void reverse();
 protected:
     /*
     * Structure that represent a single element of Single-Linked List.
