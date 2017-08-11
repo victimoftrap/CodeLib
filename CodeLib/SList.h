@@ -1,15 +1,23 @@
 #pragma once
 #include "ADT.h"
-class List : ADT
+class SList : ADT
 {
 public:
-    List();
-    ~List() override;
+    SList();
+    ~SList() override;
     void push(int) override;
     int pop() override;
     int get() override;
     bool isEmpty() override;
     std::string toString() override;
+
+    void clear();
+    void moveForward();
+    void toBegin();
+    bool isEnd();
+
+    void toEnd();
+    void pushBegin(int);
 protected:
     /*
     * Structure that represent a single element of Single-Linked List.
@@ -20,8 +28,8 @@ protected:
         Element* next = nullptr;
         Element(int, Element*);
     };
-    Element* _root = nullptr;     // root element for SList.
-    Element* _current = nullptr;
+    Element* root = nullptr;     // root element for SList.
+    Element* current = nullptr;
 
 
 };
