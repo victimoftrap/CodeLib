@@ -13,6 +13,38 @@ SList::SList()
     current = nullptr;
 }
 
+SList::SList(SList & old)
+{
+    if (!old.isEmpty())
+    {
+        Element* temp = old.root;
+        while (temp != nullptr)
+        {
+            push(temp->value);
+            temp = temp->next;
+        }
+    }
+}
+
+void SList::clear()
+{
+    if (root != nullptr)
+    {
+        toBegin();
+        while (!isEmpty())
+        {
+            pop();
+        }
+        delete root;
+        root = nullptr;
+    }
+}
+
+SList::~SList()
+{
+    clear();
+}
+
 void SList::push(int value)
 {
     Element* temp = new Element(value, nullptr);
@@ -38,7 +70,7 @@ int SList::pop()
 {
     if (isEmpty())
     {
-        //except
+        throw SListIsEmptyException();
     }
     else if (root->next == nullptr)
     {
@@ -91,13 +123,9 @@ int SList::pop()
 int SList::get()
 {
     if (isEmpty())
-    {
-        //except
-    }
-    else
-    {
-        return current->value;
-    }
+        throw SListIsEmptyException();
+
+    return current->value;
 }
 
 bool SList::isEmpty()
@@ -123,47 +151,20 @@ std::string SList::toString()
     return temp;
 }
 
-void SList::clear()
-{
-    if (root != nullptr)
-    {
-        toBegin();
-        while (!isEmpty())
-        {
-            pop();
-        }
-        delete root;
-        root = nullptr;
-    }
-}
-
-SList::~SList()
-{
-    clear();
-}
-
 void SList::moveForward()
 {
     if (current == nullptr)
-    {
-        //except
-    }
-    else
-    {
-        current = current->next;
-    }
+        return;
+
+    current = current->next;
 }
 
 void SList::toBegin()
 {
     if (isEmpty())
-    {
-        //except
-    }
-    else
-    {
-        current = root;
-    }
+        throw SListIsEmptyException();
+
+    current = root;
 }
 
 bool SList::isEnd()
@@ -171,7 +172,7 @@ bool SList::isEnd()
     return (current->next == nullptr);
 }
 
-void SList::pushRoot(int value)
+void SList::pushIntoBegin(int value)
 {
     Element* temp = new Element;
     temp->value = value;
@@ -188,29 +189,63 @@ void SList::pushRoot(int value)
     current = root;
 }
 
-void SList::reverse()
+void SList::reverse() noexcept
 {
-    if (!isEmpty())
+    if (isEmpty())
+        return;
+
+    SList esr;
+    Element* point = nullptr;
+
+    while (point != root)
     {
-        SList esr;
-        Element* point = nullptr;
-
-        while (point != root)
+        toBegin();
+        while (current->next != point)
         {
-            toBegin();
-            while (current->next != point)
-            {
-                moveForward();
-            }
-            point = current;
-            esr.push(point->value);
+            moveForward();
         }
-
-        clear();
-        esr.toBegin();
-        while (!esr.isEmpty())
-        {
-            push(esr.pop());
-        }
+        point = current;
+        esr.push(point->value);
     }
+
+    clear();
+    esr.toBegin();
+    while (!esr.isEmpty())
+    {
+        push(esr.pop());
+    }
+}
+
+void SList::swap(SList& other) noexcept
+{
+    Element* temp = root;
+    root = other.root;
+    other.root = temp;
+
+    temp = current;
+    current = other.current;
+    other.current = temp;
+
+    delete temp;
+    temp = nullptr;
+}
+
+void SList::merge(SList &addition)
+{
+    if (isEmpty())
+        throw SListIsEmptyException();
+
+    Element* temp = current;
+    toBegin();
+    while (current->next != nullptr)
+    {
+        moveForward();
+    }
+    addition.toBegin();
+    while (addition.current != nullptr)
+    {
+        push(addition.get());
+        addition.moveForward();
+    }
+    current = temp;
 }
