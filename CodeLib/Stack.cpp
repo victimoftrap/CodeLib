@@ -38,6 +38,7 @@ int Stack::pop()
         _root = _root->next;
 
         delete _current;
+        _current = _root;
     }
     else
     {

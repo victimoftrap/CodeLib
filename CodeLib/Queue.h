@@ -4,6 +4,7 @@
 class Queue : ADT
 {
 public:
+    Queue();
     ~Queue() override;
     void push(int) override;
     int pop() override;
@@ -22,8 +23,8 @@ protected:
         Element* next = nullptr;
         Element(int, Element*);
     };
-    Element* _root = nullptr;     // root element for queue.
-    Element* _current = nullptr;
+    Element* root = nullptr;     // root element for queue.
+    Element* current = nullptr;
 
 
 };
